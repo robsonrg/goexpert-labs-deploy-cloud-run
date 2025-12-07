@@ -37,6 +37,20 @@ Entrega
 - Utilize docker/docker-compose para que possamos realizar os testes de sua aplicação.
 - Deploy realizado no Google Cloud Run (free tier) e endereço ativo para ser acessado.
 
----
+# Executando a aplicação
 
-wip
+### Pré-requisitos
+
+- Crie uma chave de API em https://www.weatherapi.com/
+- Insira a chave de API no arquivo `.env`
+
+### Iniciando a aplicação localmente
+
+```sh
+go mod tidy
+go run cmd/server/main.go
+```
+
+### Testando a aplicação
+
+Com a aplicação rodando, faça uma requisição para `http://localhost:8080/cep-temperature/89035400`. Ou, utilize a extensão REST Client, do vscode, e execute as requisições do arquivo `test/api-cep-temperature.http`.

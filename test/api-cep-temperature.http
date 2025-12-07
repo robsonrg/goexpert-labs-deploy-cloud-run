@@ -1,0 +1,23 @@
+//[200] Non-hyphened CEP
+GET http://localhost:8080/cep-temperature/89035400
+Accept: application/json
+
+###
+//[200] Hyphened CEP
+GET http://localhost:8080/cep-temperature/89126-000
+Accept: application/json
+
+###
+//[422] Invalid format - 9 digits
+GET http://localhost:8080/cep-temperature/890354009
+Accept: application/json
+
+###
+//[422] Invalid format - Letters w/ digits
+GET http://localhost:8080/cep-temperature/8912X123
+Accept: application/json
+
+###
+//[404] CEP not found
+GET http://localhost:8080/cep-temperature/00000000
+Accept: application/json
