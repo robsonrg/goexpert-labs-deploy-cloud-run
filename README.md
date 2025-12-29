@@ -59,4 +59,14 @@ docker compose up -d
 
 ### Testando a aplicação
 
-Com a aplicação rodando, faça uma requisição para `http://localhost:8080/cep-temperature/89035400`. Ou, utilize a extensão REST Client, do vscode, e execute as requisições do arquivo `test/api-cep-temperature.http`.
+Localmente
+
+- Com a aplicação rodando, faça uma requisição para `http://localhost:8080/cep-temperature/89035400`. Ou, utilize a extensão REST Client, do vscode, e execute as requisições do arquivo `test/api-cep-temperature.http`.
+
+# Executando no Google Cloud Run
+
+Endereço da aplicação publicada no Google Cloud Run: `https://goexpert-labs-deploy-cloud-run-wyjuwyvmqq-uc.a.run.app`
+
+```sh
+curl --request GET --url https://goexpert-labs-deploy-cloud-run-wyjuwyvmqq-uc.a.run.app/cep-temperature/89035400
+```
