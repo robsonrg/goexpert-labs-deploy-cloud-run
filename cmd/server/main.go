@@ -19,18 +19,27 @@ func init() {
 		// pois as variáveis podem estar no ambiente real
 		fmt.Println("Não foi possível carregar o arquivo .env, buscando variáveis do sistema.")
 	}
-}
 
-func main() {
 	_, ok := os.LookupEnv("WEATHER_API_KEY")
 	if !ok {
 		panic("WEATHER_API_KEY not set")
 	}
+}
 
+func main() {
+	// Configuração do roteador Chi
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 	r.Route("/cep-temperature", func(r chi.Router) {
 		r.Method(http.MethodGet, "/{cep}", handlers.GetCepTemperatureHandler())
 	})
-	http.ListenAndServe(":8080", r)
+
+	// Read PORT from environment variable (required by Cloud Run)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default for local development
+	}
+
+	fmt.Printf("Starting server on port %s\n", port)
+	http.ListenAndServe(":"+port, r)
 }

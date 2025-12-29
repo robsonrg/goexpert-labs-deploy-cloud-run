@@ -21,3 +21,9 @@ Accept: application/json
 //[404] CEP not found
 GET http://localhost:8080/cep-temperature/00000000
 Accept: application/json
+
+// Google Cloud Run
+
+### 
+GET https://goexpert-labs-deploy-cloud-run-wyjuwyvmqq-uc.a.run.app/cep-temperature/89035400
+Accept: application/json
